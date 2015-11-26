@@ -1,0 +1,65 @@
+{% extends CMS_TEMPLATE %}
+
+{% load i18n cms_tags thumbnail sekizai_tags %}
+
+{% block body_class %}tpl-post-detail{% endblock %}
+
+{% block content %}
+    {% if  post.featured_image %}
+        {% thumbnail post.featured_image 1920x768 crop upscale subject_location=post.featured_image.subject_location as featured_image %}
+    {% endif %}
+    <header class="intro-header" style="{% if  post.featured_image %}background-image: url('{{ featured_image.url }}');{% else %}background-color: #404040;{% endif %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {% render_model_block post %}
+                    <div class="post-heading">
+                        <h1>{{ post.title }}</h1>
+                        {% if post.excerpt %}
+                            <h2 class="subheading">
+                                {{ post.excerpt|safe }}
+                            </h2>
+                        {% endif %}
+                        <span class="meta">Posted by {{ post.author.get_full_name }} on {{ post.publication_date|date:"F d, Y" }}</span>
+                    </div>
+                    {% endrender_model_block %}
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% render_placeholder post.content %}
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 class="section-heading">{% trans 'Comments' %}</h2>
+                <div id="disqus_thread"></div>
+                <noscript>
+                    <p>{% trans 'Please enable JavaScript to view the comments powered by Disqus.' %}</p>
+                </noscript>
+            </div>
+        </div>
+    </div>
+
+    {% addtoblock "js" %}
+        <script type="text/javascript">
+            var disqus_shortname = '{{ disqus_shortname }}';
+            var disqus_identifier = 'staticgen-demo-post-{{ post.pk }}';
+            var disqus_title = '{{ post.title}}';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http{% if request.is_secure %}s{% endif %}://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+    {% endaddtoblock %}
+{% endblock content %}
+
+

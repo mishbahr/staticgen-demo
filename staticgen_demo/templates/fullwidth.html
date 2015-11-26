@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n cms_tags %}
+
+{% block body_class %}tpl-fullwidth{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+    {% placeholder 'header' or %}
+        <header class="intro-header" style="background-color: #404040">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>{% page_attribute 'page_title' %}</h1>
+                            <hr class="small">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endplaceholder %}
+    {% endblock page_header %}
+    {% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% placeholder 'content' or %}
+                    <p class="text-center"> {% trans 'There is no content.' %}</p>
+                {% endplaceholder %}
+            </div>
+        </div>
+    </div>
+    {% endblock container %}
+{% endblock content %}

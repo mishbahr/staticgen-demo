@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Page Not found' %}{% endblock %}
+
+{% block content %}
+    <header class="intro-header" style="background-color: #404040">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>{% trans 'Page Not found' %}</h1>
+                        <hr class="small">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p class="text-center"> {% trans 'This is not the page you were looking for.' %}</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

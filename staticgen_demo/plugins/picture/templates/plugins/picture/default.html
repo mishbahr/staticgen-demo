@@ -1,0 +1,9 @@
+{% load thumbnail %}
+
+{% thumbnail instance.image 960x540 crop upscale subject_location=instance.image.subject_location as thumb %}
+
+<img class="img-responsive" src="{{ thumb.url }}" alt="{% firstof instance.image.default_alt_text instance.image.label %}">
+
+{% if instance.caption %}
+    <span class="caption text-muted">{{ instance.caption|safe }}</span>
+{% endif %}

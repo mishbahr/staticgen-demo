@@ -1,0 +1,44 @@
+{% extends CMS_TEMPLATE %}
+{% load i18n staticfiles sekizai_tags blog_tags %}
+
+{% block body_class %}tpl-post-list{% endblock %}
+
+{% block container %}
+ <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for post in post_list %}
+            <div class="post-preview">
+                <a href="{{ post.get_absolute_url }}">
+                    <h2 class="post-title">
+                       {{ post.title }}
+                    </h2>
+                    {% if post.excerpt %}
+                    <h3 class="post-subtitle">
+                        {{ post.excerpt|safe }}
+                    </h3>
+                    {% endif %}
+                </a>
+                <p class="post-meta">Posted by {{ post.author.get_full_name }} on {{ post.publication_date|date:"F d, Y" }}</p>
+            </div>
+            <hr>
+            {% empty %}
+                <p class="text-center">{% trans "No articles found." %}</p>
+            {% endfor %}
+            <!-- Pager -->
+            <ul class="pager">
+                {% if page_obj.has_previous %}
+                    <li class="previous"><a href="{% routable_pageurl page_obj.previous_page_number %}"><span aria-hidden="true">&larr;</span> {% trans 'Newer Posts' %}</a></li>
+                {% else %}
+                    <li class="previous disabled"><a href="javascript:void(0);"><span aria-hidden="true">&larr;</span> {% trans 'Newer Posts' %}</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <li class="next"><a href="{% routable_pageurl page_obj.next_page_number %}">{% trans 'Older Posts' %} <span aria-hidden="true">&rarr;</span> </a></li>
+                {% else %}
+                    <li class="next disabled"><a href="javascript:void(0);">{% trans 'Older Posts' %} <span aria-hidden="true">&rarr;</span> </a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+ </div>
+{% endblock container %}

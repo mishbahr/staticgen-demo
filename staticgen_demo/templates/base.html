@@ -1,0 +1,122 @@
+<!DOCTYPE html>{% load i18n staticfiles cms_tags menu_tags sekizai_tags %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta_tags %}
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="{% spaceless %}
+            {% block meta_description %}
+                {% page_attribute meta_description %}
+            {% endblock %}
+        {% endspaceless %}">
+    {% endblock meta_tags %}
+    <meta name="author" content="">
+
+    <title>{% block title %}{% trans 'Staticgen Demo' %}{% endblock title %}</title>
+
+    <link rel="apple-touch-icon" href="{% static 'favicon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/staticgen.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    {% render_block "css" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="{% static 'js/html5shiv.js' %}"></script>
+        <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+
+    {% block extrahead %}{% endblock %}
+    {% include "includes/analytics.html" %}
+</head>
+
+<body id="page-top" class="lang-{{ LANGUAGE_CODE }} {% block body_class %}{% endblock %}">
+    {% cms_toolbar %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">{% trans 'Toggle navigation' %}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'pages-root' %}">{% trans 'Staticgen' %}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                {% render_model_block request.current_page "changelist" %}
+                    <ul class="nav navbar-nav navbar-right">
+                        {% show_menu 0 0 100 100 "includes/menu/navigation.html" %}
+                    </ul>
+                {% endrender_model_block %}
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+    {% block messages %}
+        {% include "includes/messages.html" %}
+    {% endblock messages %}
+    {% block content %}{% endblock content %}
+    <hr>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://github.com/mishbahr" target="_blank" title="{% trans 'GitHub' %}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/u/1/111621118083997729449/about" target="_blank" title="{% trans 'Google+' %}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://uk.linkedin.com/in/mishbah" target="_blank" title="{% trans 'LinkedIn' %}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/mishbahrazzaque" target="_blank" title="{% trans 'Twitter' %}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">{% trans 'Copyright &copy; Mishbah Razzaque 2015' %}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/staticgen.js' %}"></script>
+    {% render_block "js" %}
+    {% block extrafooter %}{% endblock %}
+</body>
+</html>
