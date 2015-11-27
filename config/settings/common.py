@@ -234,10 +234,6 @@ ADMIN_SHORTCUTS = [
     {
         'shortcuts': [
             {
-                'url_name': 'admin:auth_user_changelist',
-                'title': _('Users'),
-            },
-            {
                 'url_name': 'admin:cms_page_changelist',
                 'title': _('Pages'),
             },
