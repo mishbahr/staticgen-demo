@@ -14,7 +14,9 @@ Live Site
 https://staticgen-demo.herokuapp.com
 
 Admin: https://staticgen-demo.herokuapp.com/manage
+
 Username: demo
+
 Password: demo
 
 
