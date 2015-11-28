@@ -15,9 +15,7 @@ https://staticgen-demo.herokuapp.com
 
 Admin: https://staticgen-demo.herokuapp.com/manage
 
-Username: demo
-
-Password: demo
+Message me on Twitter `@mishbahrazzaque <https://twitter.com/mishbahrazzaque>`_ for login details.
 
 
 Static Site (coming soon)
