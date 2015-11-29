@@ -82,7 +82,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-    'cms.middleware.utils.ApphookReloadMiddleware',
+    # 'cms.middleware.utils.ApphookReloadMiddleware',
 
     'staticgen_demo.blog.middleware.RedirectOnDeleteMiddleware',
 )
