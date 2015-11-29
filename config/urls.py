@@ -11,6 +11,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 from cms.sitemaps import CMSSitemap
+from staticgen.sitemaps import override_sitemaps_domain
 
 from staticgen_demo.blog.sitemaps import BlogSitemap
 
@@ -25,7 +26,8 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^manage/', include(admin.site.urls)),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='sitemap.xml'),
+    url(r'^sitemap\.xml$', sitemap,
+        {'sitemaps': override_sitemaps_domain(sitemaps)}, name='sitemap.xml'),
     url(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt', content_type='text/plain'), name='robots.txt'),
     url(r'^404/$', default_views.page_not_found, name='page_not_found'),

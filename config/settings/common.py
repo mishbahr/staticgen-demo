@@ -49,6 +49,7 @@ THIRD_PARTY_APPS = (
     'sekizai',
     'redactor',
 
+    'staticgen',
 )
 
 # Apps specific for this project go here.
