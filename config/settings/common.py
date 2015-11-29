@@ -82,6 +82,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+    'cms.middleware.utils.ApphookReloadMiddleware',
 
     'staticgen_demo.blog.middleware.RedirectOnDeleteMiddleware',
 )
@@ -256,6 +257,20 @@ ADMIN_SHORTCUTS = [
 LANGUAGES = (
     ('en', _('English')),
 )
+
+CMS_LANGUAGES = {
+    1: [
+        {
+            'code': 'en',
+            'name': _('English'),
+        },
+    ],
+    'default': {
+        'redirect_on_fallback': True,
+        'public': True,
+        'hide_untranslated': False,
+    }
+}
 
 CMS_TEMPLATES = (
     ('fullwidth.html', _('Fullwidth')),
