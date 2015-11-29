@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.utils.translation import ugettext_lazy as _
-from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 from cms.sitemaps import CMSSitemap
@@ -28,10 +27,13 @@ urlpatterns = [
     url(r'^manage/', include(admin.site.urls)),
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': override_sitemaps_domain(sitemaps)}, name='sitemap.xml'),
-    url(r'^robots\.txt$', TemplateView.as_view(
-        template_name='robots.txt', content_type='text/plain'), name='robots.txt'),
-    url(r'^404/$', default_views.page_not_found, name='page_not_found'),
-    url(r'^500/$', default_views.server_error, name='server_error'),
+    url(r'^robots\.txt$',
+        TemplateView.as_view(template_name='robots.txt', content_type='text/plain'),
+        name='robots.txt'),
+    url(r'^404/$', TemplateView.as_view(template_name='404.html'),
+        name='page_not_found'),
+    url(r'^500/$', TemplateView.as_view(template_name='500.html'),
+        name='server_error'),
     url(r'^', include('cms.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
