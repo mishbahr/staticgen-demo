@@ -1,6 +1,3 @@
 # Basics
 *.py[cod]
 
-# Static Assets
-staticgen_demo/static/
-
