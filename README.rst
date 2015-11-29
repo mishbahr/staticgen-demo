@@ -18,7 +18,7 @@ Admin: https://staticgen-demo.herokuapp.com/manage
 Message me on Twitter `@mishbahrazzaque <https://twitter.com/mishbahrazzaque>`_ for login details.
 
 
-Static Site (coming soon)
--------------------------
+Static Site
+-----------
 
-https://staticgen-demo.s3-website-us-west-2.amazonaws.com
+http://staticgen-demo.s3-website-us-west-2.amazonaws.com
