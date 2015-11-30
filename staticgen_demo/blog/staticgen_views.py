@@ -17,14 +17,19 @@ class BlogPostListView(StaticgenView):
 
     def _get_paginator(self, url):
         response = self.client.get(url)
-        print response.status_code
-        print response.__dict__
-
+        print 'status_code: %s' % response.status_code
         if not response.status_code == 200:
             pass
         else:
+            context = {}
+            if hasattr(response, 'context_data'):
+                context = response.context_data
+            elif hasattr(response, 'context'):
+                context = response.context
+
+            print context
             try:
-                return response.context['paginator'], response.context['is_paginated']
+                return context['paginator'], response.context['is_paginated']
             except KeyError:
                 pass
         return None, False
