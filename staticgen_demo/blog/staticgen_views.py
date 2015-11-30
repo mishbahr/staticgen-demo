@@ -29,7 +29,7 @@ class BlogPostListView(StaticgenView):
 
             print context
             try:
-                return context['paginator'], response.context['is_paginated']
+                return context['paginator'], context['is_paginated']
             except KeyError:
                 pass
         return None, False
