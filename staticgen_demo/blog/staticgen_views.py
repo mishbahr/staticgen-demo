@@ -10,12 +10,14 @@ from .models import Post
 
 class BlogPostListView(StaticgenView):
     is_paginated = True
+    i18n = True
 
     def items(self):
         return ('blog:posts_list', )
 
 
 class BlogPostDetailView(StaticgenView):
+    i18n = True
 
     def items(self):
         return Post.objects.all()
