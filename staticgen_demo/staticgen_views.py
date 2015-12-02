@@ -13,10 +13,10 @@ class StaicgenDemoStaticViews(StaticgenView):
 
     def items(self):
         return (
-            'sitemap.xml',
+            'django.contrib.sitemaps.views.sitemap',
             'robots.txt',
             'page_not_found',
-            'server_error',
+            'application_error',
         )
 
 staticgen_pool.register(StaicgenDemoStaticViews)

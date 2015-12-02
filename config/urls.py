@@ -26,14 +26,15 @@ sitemaps = {
 urlpatterns = [
     url(r'^manage/', include(admin.site.urls)),
     url(r'^sitemap\.xml$', sitemap,
-        {'sitemaps': override_sitemaps_domain(sitemaps)}, name='sitemap.xml'),
+        {'sitemaps': override_sitemaps_domain(sitemaps)},
+        name='django.contrib.sitemaps.views.sitemap'),
     url(r'^robots\.txt$',
         TemplateView.as_view(template_name='robots.txt', content_type='text/plain'),
         name='robots.txt'),
     url(r'^404/$', TemplateView.as_view(template_name='404.html'),
         name='page_not_found'),
-    url(r'^500/$', TemplateView.as_view(template_name='500.html'),
-        name='server_error'),
+    url(r'^error/$', TemplateView.as_view(template_name='500.html'),
+        name='application_error'),
     url(r'^', include('cms.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
