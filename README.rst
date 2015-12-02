@@ -36,10 +36,3 @@ http://aws.amazon.com/s3/
 **Bootstrap blog theme by Start Bootstrap**
 
 https://github.com/IronSummitMedia/startbootstrap-clean-blog
-
-
-Deployment
-----------
-
-.. image:: https://www.herokucdn.com/deploy/button.png
-    :target: https://heroku.com/deploy
