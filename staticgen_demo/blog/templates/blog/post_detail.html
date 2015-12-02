@@ -8,12 +8,12 @@
     {% if  post.featured_image %}
         {% thumbnail post.featured_image 1920x768 crop upscale subject_location=post.featured_image.subject_location as featured_image %}
     {% endif %}
-    <header class="intro-header" style="{% if  post.featured_image %}background-image: url('{{ featured_image.url }}');{% else %}background-color: #404040;{% endif %}">
+    <header class="intro-header tinted-bg" style="{% if  post.featured_image %}background-image: url('{{ featured_image.url }}');{% else %}background-color: #404040;{% endif %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     {% render_model_block post %}
-                    <div class="post-heading">
+                    <div class="post-heading ">
                         <h1>{{ post.title }}</h1>
                         {% if post.excerpt %}
                             <h2 class="subheading">

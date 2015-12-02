@@ -2,7 +2,7 @@
 {% if instance.background_image %}
 {% thumbnail instance.background_image 1920x768 crop upscale subject_location=instance.background_image.subject_location as background_image %}
 {% endif %}
-<header class="intro-header" style="background-color: #404040;{% if background_image %} background-image: url('{{ background_image.url }}');{% endif %}">
+<header class="intro-header tinted-bg" style="background-color: #404040;{% if background_image %} background-image: url('{{ background_image.url }}');{% endif %}">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
