@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.utils import translation
 
+from cms.models import Title
 from staticgen.staticgen_pool import staticgen_pool
 from staticgen.staticgen_views import StaticgenView
 
@@ -25,12 +26,6 @@ staticgen_pool.register(StaicgenDemoStaticViews)
 class StaticgenCMSView(StaticgenView):
 
     def items(self):
-        try:
-            from cms.models import Title
-        except ImportError:  # pragma: no cover
-            # django-cms is not installed.
-            return super(StaticgenCMSView, self).items()
-
         items = Title.objects.public().filter(
             page__login_required=False,
             page__site_id=settings.SITE_ID,
