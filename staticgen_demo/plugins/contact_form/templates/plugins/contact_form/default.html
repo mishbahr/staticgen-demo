@@ -17,20 +17,12 @@
     </div>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Phone Number</label>
-            <input type="tel" class="form-control" name="phone-number" placeholder="{% trans 'Phone Number' %}" id="phone" required data-validation-required-message="{% trans 'Please enter your phone number.' %}">
-            <p class="help-block text-danger"></p>
-        </div>
-    </div>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>Message</label>
             <textarea rows="5" class="form-control" name="message" placeholder="{% trans 'Message' %}" id="message" required data-validation-required-message="{% trans 'Please enter a message.' %}"></textarea>
             <p class="help-block text-danger"></p>
         </div>
     </div>
     <br>
-
     <div id="success"></div>
     <input type="text" name="_gotcha" class="visuallyhidden"/>
     <input type="hidden" name="_subject" value="{{ instance.subject|default:'Staticgen Contact Form' }}" />
