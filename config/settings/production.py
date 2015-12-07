@@ -62,7 +62,7 @@ AWS_S3_DEFAULT_FILES_LOCATION = 'media'
 MEDIA_ROOT = '/%s/' % AWS_S3_DEFAULT_FILES_LOCATION
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_S3_DEFAULT_FILES_LOCATION)
 
-DEFAULT_FILE_STORAGE = 'staticgen.staticgen_storages.S3DefaultStorage'
+DEFAULT_FILE_STORAGE = 'staticgen.staticgen_storages.StaticgenDefaultFilesStorage'
 
 
 # Static Assets
@@ -72,7 +72,7 @@ AWS_S3_STATIC_FILES_LOCATION = 'static'
 STATIC_ROOT = '/%s/' % AWS_S3_STATIC_FILES_LOCATION
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_S3_STATIC_FILES_LOCATION)
 
-STATICFILES_STORAGE = 'staticgen.staticgen_storages.S3StaticStorage'
+STATICFILES_STORAGE = 'staticgen.staticgen_storages.StaticgenStaticFilesStorage'
 
 # See: https://github.com/antonagestam/collectfast
 # For Django 1.7+, 'collectfast' should come before
