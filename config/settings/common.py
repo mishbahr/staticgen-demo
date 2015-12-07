@@ -229,6 +229,7 @@ AUTHENTICATION_BACKENDS = (
 INSTALLED_APPS += ('staticgen_demo.taskapp.celery.CeleryConfig',)
 INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env('CELERY_BROKER_URL', default='django://')
+CELERY_TASK_SERIALIZER = 'json'
 ########## END CELERY
 
 ADMIN_SHORTCUTS = [
