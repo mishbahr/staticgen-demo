@@ -180,6 +180,9 @@ TEMPLATES = [
                 'django.core.context_processors.request',
                 'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
+
+                'staticgen_demo.context_processors.settings',
+                'staticgen_demo.context_processors.i18n',
             ],
         },
     },
