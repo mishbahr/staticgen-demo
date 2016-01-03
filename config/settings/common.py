@@ -50,6 +50,7 @@ THIRD_PARTY_APPS = (
     'redactor',
 
     'staticgen',
+    'djangocms_embed',
 )
 
 # Apps specific for this project go here.
@@ -299,3 +300,5 @@ THUMBNAIL_PROCESSORS = (
 
 )
 
+########## DJANGOCMS-EMBED
+DJANGOCMS_EMBED_API_KEY = env('DJANGOCMS_EMBED_API_KEY', default=None)

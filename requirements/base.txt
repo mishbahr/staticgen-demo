@@ -37,3 +37,6 @@ embedly==0.5.0
 
 # django-staticgen (alpha) — not released on PyPi
 -e git+https://github.com/mishbahr/django-staticgen.git@master#egg=django-staticgen
+
+# djangocms-embed - use latest version from GitHub
+-e git+https://github.com/mishbahr/djangocms-embed.git@master#egg=djangocms-embed
