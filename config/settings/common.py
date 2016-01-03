@@ -61,7 +61,6 @@ LOCAL_APPS = (
     'staticgen_demo.plugins.page_header',
     'staticgen_demo.plugins.picture',
     'staticgen_demo.plugins.contact_form',
-    'staticgen_demo.plugins.embedly_oembed',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
