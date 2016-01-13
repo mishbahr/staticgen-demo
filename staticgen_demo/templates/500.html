@@ -12,27 +12,55 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <style>
         body {
-          font-family: 'Lora', 'Times New Roman', serif;
-          font-size: 20px;
-          color: #404040;
+            font-family: 'Lora', 'Times New Roman', serif;
+            font-size: 20px;
+            color: #404040;
         }
         p {
-          line-height: 1.5;
-          margin: 30px 0;
+            line-height: 1.5;
+            margin: 30px 0;
         }
         p a {
-          text-decoration: underline;
+            text-decoration: underline;
         }
         h1, h2, h3, h4, h5, h6 {
-          font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-weight: 800;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 800;
         }
+        .vertical-center {
+            min-height: 100%;
+            min-height: 100vh;
+            /* Make it a flex container */
+
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            /* Align the bootstrap's container vertically */
+
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            /* In legacy web browsers such as Firefox 9
+             we need to specify the width of the flex container */
+
+            width: 100%;
+            -webkit-box-pack: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container vertical-center">
         <div class="row">
-            <div class="text-center">
+            <div class="inner-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <h1>Application Error</h1>
                 <h3>An error occurred in the application and your page could not be served. Please try again in a few moments.</h3>
                 <p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
