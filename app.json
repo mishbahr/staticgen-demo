@@ -10,7 +10,7 @@
     },
     "DJANGO_ALLOWED_HOSTS": {
       "description": "Comma-separated list of hosts",
-      "value": ".herokuapp.com"
+      "value": ".herokuapp.com, .amazonaws.com"
     },
     "DJANGO_AWS_ACCESS_KEY_ID": "",
     "DJANGO_AWS_SECRET_ACCESS_KEY": "",
