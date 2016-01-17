@@ -38,8 +38,8 @@ http://aws.amazon.com/s3/
 https://github.com/IronSummitMedia/startbootstrap-clean-blog
 
 
-Deployment
-----------
+Deploy your own
+===============
 
 .. image:: https://www.herokucdn.com/deploy/button.png
     :target: https://heroku.com/deploy
