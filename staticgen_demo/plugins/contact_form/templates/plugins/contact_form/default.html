@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<form class="contact-form" id="contactForm" action="//formspree.io/{{ instance.email }}" method="POST" novalidate>
+<form class="contact-form" id="contactForm" action="{{ action_url }}" method="POST" novalidate>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>Name</label>

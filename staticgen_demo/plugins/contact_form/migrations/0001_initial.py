@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
                 ('email', models.EmailField(max_length=254, verbose_name='Email')),
+                ('hashid', models.CharField(max_length=40, editable=False)),
             ],
             options={
                 'abstract': False,

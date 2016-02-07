@@ -19,10 +19,11 @@ $(function() {
                 url: $form.attr('action'),
                 type: 'POST',
                 data: $form.serialize(),
+                crossDomain: true,
                 dataType: 'json',
+                headers: {'X-Requested-With': 'XMLHttpRequest'},
                 cache: false,
                 success: function() {
-                    console.log('success');
                     // Success message
                     $('#success').html('<div class="alert alert-success">');
                     $('#success > .alert-success').html('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;')

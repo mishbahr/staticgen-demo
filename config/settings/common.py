@@ -228,13 +228,15 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-########## CELERY
+# CELERY
+# ------------------------------------------------------------------------------
 INSTALLED_APPS += ('staticgen_demo.taskapp.celery.CeleryConfig',)
 INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 CELERY_TASK_SERIALIZER = 'json'
-########## END CELERY
 
+# ADMIN_SHORTCUTS
+# ------------------------------------------------------------------------------
 ADMIN_SHORTCUTS = [
     {
         'shortcuts': [
@@ -255,9 +257,11 @@ ADMIN_SHORTCUTS = [
     },
 ]
 
-########## DJANGO-CMS
 
+# DJANGO-CMS
+# ------------------------------------------------------------------------------
 # See: http://docs.django-cms.org/en/latest/topics/i18n.html
+
 LANGUAGES = (
     ('en', _('English')),
 )
@@ -287,17 +291,23 @@ CMS_PLACEHOLDER_CONF = {
     },
 }
 
-########## END DJANGO-CMS
-
+# DJANGO-FILER
+# ------------------------------------------------------------------------------
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
-    #'easy_thumbnails.processors.scale_and_crop',
+    # 'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
     'easy_thumbnails.processors.background',
 
 )
 
-########## DJANGOCMS-EMBED
+# DJANGOCMS-EMBED
+# ------------------------------------------------------------------------------
 DJANGOCMS_EMBED_API_KEY = env('DJANGOCMS_EMBED_API_KEY', default=None)
+
+# DJANGO-FWDFORM
+# ------------------------------------------------------------------------------
+FWDFORM_API_URL = env('DJANGO_FWDFORM_API_URL', default='')
+FWDFORM_SITE_TOKEN = env('DJANGO_FWDFORM_SITE_TOKEN', default='')

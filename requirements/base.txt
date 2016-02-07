@@ -27,6 +27,8 @@ djangocms-admin-style==1.0.6
 django-admin-shortcuts==1.2.6
 django-wysiwyg-redactor==0.4.9
 
+requests>=1.0
+
 # django-filer (1.0.3) - PyPi version has migration issues
 -e git+https://github.com/divio/django-filer.git@master#egg=django-filer
 
